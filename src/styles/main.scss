@@ -1,0 +1,190 @@
+$primary: #27ae60;
+$bg: #f5f6fa;
+$card: #ffffff;
+
+body {
+  background: $bg;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== APP ===== */
+.app {
+  padding: 10px;
+  padding-top: 0;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(to right, #0ba360, #3cba92);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* ===== TYPE CARDS ===== */
+.card-row {
+  display: flex;
+  gap: 15px;              // ✅ better spacing
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 180px;       // ✅ prevents shrinking + allows wrapping
+  padding: 15px;
+  background: $card;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  .icon {
+    color: #298e0d;
+    font-size: 40px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.active {
+    border: 2px solid $primary;
+    background: #eafaf1;
+
+    .icon {
+      color: #1a81a6;
+    }
+  }
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;      // ✅ allows stacking when needed
+}
+
+.btn {
+  flex: 1 1 150px;      // ✅ responsive width
+  margin: 0;            // ❌ removed margin (important fix)
+  padding: 15px;
+  background: #eee;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+
+  &.active {
+    background: $primary;
+    color: white;
+  }
+}
+
+/* ===== INPUT SECTION ===== */
+.input-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;      // ✅ better than full margin
+}
+
+.input-box {
+  background: $card;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ===== OPERATOR ===== */
+.operator {
+  margin: 20px 0;
+  text-align: center;
+
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    &.active {
+      background: $primary;
+      color: white;
+    }
+  }
+}
+
+/* ===== RESULT ===== */
+.result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 28px;
+  color: $primary;
+}
+
+/* ===== HISTORY ===== */
+.history {
+  margin-top: 30px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    background: $card;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .header {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  /* Cards stack nicely */
+  .card {
+    flex: 1 1 100%;
+  }
+
+  /* Buttons stack */
+  .btn {
+    flex: 1 1 100%;
+  }
+
+  /* Inputs stack */
+  .input-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .card {
+    flex: 1 1 45%;
+  }
+
+  .btn {
+    flex: 1 1 45%;
+  }
+}
